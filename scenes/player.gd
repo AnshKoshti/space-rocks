@@ -1,17 +1,25 @@
 extends RigidBody2D
 
+
 enum {INIT, ALIVE, INVULNERABLE, DEAD}
 var state = INIT
+@export var engine_power = 500
+@export var spin_power = 8000
+var thrust = Vector2.ZERO
+var rotation_dir = 0
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	change_state(ALIVE)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	get_input()
+
+
+func _physics_process(_delta: float) -> void:
+	constant_force = thrust
+	constant_torque = rotation_dir * spin_power
 
 
 func change_state(new_state):
@@ -25,3 +33,12 @@ func change_state(new_state):
 		DEAD:
 			$CollisionShape2D.set_deferred("disabled", true)
 	state = new_state
+
+
+func get_input():
+	thrust = Vector2.ZERO
+	if state in [DEAD, INIT]:
+		return
+	if Input.is_action_pressed("thrust"):
+		thrust = transform.x * engine_power
+	rotation_dir = Input.get_axis("rotate_left", "rotate_right")
