@@ -17,7 +17,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1di36")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["rocks"]]
 
 [node name="Explosion" parent="." instance=ExtResource("3_ik6fu")]
 visible = false
