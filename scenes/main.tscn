@@ -29,5 +29,6 @@ curve = SubResource("Curve2D_0wfyh")
 
 [node name="Hud" parent="." instance=ExtResource("5_tbgi4")]
 
+[connection signal="dead" from="Player" to="." method="game_over"]
 [connection signal="lives_changed" from="Player" to="Hud" method="update_lives"]
 [connection signal="start_game" from="Hud" to="." method="new_game"]
