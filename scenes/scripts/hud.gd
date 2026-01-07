@@ -12,6 +12,7 @@ func show_message(text):
 	message.show()
 	$Timer.start()
 
+
 func update_score(value):
 	score_label.text = str(value)
 

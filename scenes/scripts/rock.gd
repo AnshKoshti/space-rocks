@@ -8,7 +8,6 @@ var scale_factor = 0.2
 signal exploded
 
 
-
 func _integrate_forces(physics_state: PhysicsDirectBodyState2D) -> void:
 	var xform = physics_state.transform
 	xform.origin.x = wrapf(xform.origin.x, 0 - radius, screensize.x + radius)
