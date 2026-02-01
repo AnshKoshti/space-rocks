@@ -3,6 +3,7 @@ extends RigidBody2D
 @export var spin_power = 8000
 
 
+# Variables tab.
 enum {INIT, ALIVE, INVULNERABLE, DEAD}
 var state = INIT
 var thrust = Vector2.ZERO
@@ -10,11 +11,13 @@ var rotation_dir = 0
 var screensize = Vector2.ZERO
 
 
+# Game starts with "ALIVE STATE".
 func _ready() -> void:
 	change_state(ALIVE)
 	screensize = get_viewport_rect().size
 
 
+# Waiting for user input every frame.
 func _process(_delta: float) -> void:
 	get_input()
 
