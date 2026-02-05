@@ -29,6 +29,7 @@ func _physics_process(_delta: float) -> void:
 	constant_torque = rotation_dir * spin_power
 
 
+# Creates screen limit bound for object.
 func _integrate_forces(_physics_state: PhysicsDirectBodyState2D) -> void:
 	var xform = _physics_state.transform
 	xform.origin.x = wrapf(xform.origin.x, 0, screensize.x)

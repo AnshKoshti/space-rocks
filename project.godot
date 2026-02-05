@@ -15,6 +15,10 @@ run/main_scene="uid://c4nu8tr2qsfrl"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[global_group]
+
+rocks="Group for rocks detection."
+
 [input]
 
 rotate_right={
