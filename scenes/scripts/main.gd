@@ -20,3 +20,9 @@ func spawn_rock(size, pos=null, vel=null):
 	r.screensize = screensize
 	r.start(pos, vel, size)
 	call_deferred("add_child", r)
+	r.exploded.connect(self._on_rock_exploded)
+
+
+func _on_rock_exploded(size, radius, pos, vel):
+	if size <= 1:
+		return
