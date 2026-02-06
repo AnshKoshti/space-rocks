@@ -2,8 +2,14 @@
 
 [ext_resource type="FontFile" uid="uid://cyta3lc2c6ve0" path="res://assets/kenvector_future_thin.ttf" id="1_ahhtf"]
 [ext_resource type="Texture2D" uid="uid://dyuwg3aqb8p86" path="res://assets/player_small.png" id="2_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://iayj538h6gv6" path="res://assets/play_button.png" id="3_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://cvrn5uarh7qnq" path="res://assets/play_button_h.png" id="4_uo2fv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oo0fn"]
+font = ExtResource("1_ahhtf")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fi6k"]
 font = ExtResource("1_ahhtf")
 font_size = 64
 
@@ -49,3 +55,26 @@ stretch_mode = 3
 layout_mode = 2
 texture = ExtResource("2_oo0fn")
 stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1478103174]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -13.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Message" type="Label" parent="VBoxContainer" unique_id=617466569]
+layout_mode = 2
+text = "Space Rocks!"
+label_settings = SubResource("LabelSettings_6fi6k")
+horizontal_alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="VBoxContainer" unique_id=502628073]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_6fi6k")
+texture_hover = ExtResource("4_uo2fv")
