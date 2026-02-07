@@ -2,6 +2,9 @@ extends Node
 
 @export var rock_scene : PackedScene
 var screensize = Vector2.ZERO
+var level = 0
+var score = 0
+var playing = false
 
 
 func _ready() -> void:
