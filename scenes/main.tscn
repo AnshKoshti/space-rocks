@@ -28,3 +28,5 @@ curve = SubResource("Curve2D_0wfyh")
 [node name="RockSpawn" type="PathFollow2D" parent="RockPath" unique_id=1039911806]
 
 [node name="HUD" parent="." unique_id=2093818920 instance=ExtResource("5_tbgi4")]
+
+[connection signal="start_game" from="HUD" to="." method="new_game"]
