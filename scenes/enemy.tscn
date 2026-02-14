@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cob5g3dw2tvy"]
+
+[ext_resource type="Texture2D" uid="uid://bxki7hg0b0110" path="res://assets/enemy_saucer.png" id="1_7p1mj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7p1mj"]
+
+[node name="Enemy" type="Area2D" unique_id=2074281521]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1874038352]
+texture = ExtResource("1_7p1mj")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694549136]
+scale = Vector2(3.4, 3.4)
+shape = SubResource("CircleShape2D_7p1mj")
