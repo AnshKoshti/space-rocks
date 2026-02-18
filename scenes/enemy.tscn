@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bokmd6fyjguik" path="res://scenes/scripts/enemy.gd" id="1_5uy6h"]
 [ext_resource type="Texture2D" uid="uid://bxki7hg0b0110" path="res://assets/enemy_saucer.png" id="1_7p1mj"]
+[ext_resource type="PackedScene" uid="uid://crxxrf3eii3mk" path="res://scenes/enemy_bullet.tscn" id="2_c4w8v"]
 [ext_resource type="PackedScene" uid="uid://bcaqykjf2jhc6" path="res://scenes/enemy_paths.tscn" id="2_md0e3"]
 [ext_resource type="PackedScene" uid="uid://b4i3us7vbjwd5" path="res://scenes/explosion.tscn" id="3_4ra3w"]
 
@@ -47,6 +48,7 @@ _data = {
 
 [node name="Enemy" type="Area2D" unique_id=2074281521 groups=["enemies"]]
 script = ExtResource("1_5uy6h")
+bullet_scene = ExtResource("2_c4w8v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1874038352]
 modulate = Color(1, 0, 0, 1)
