@@ -28,8 +28,9 @@ func _ready() -> void:
 	$GunCoolDown.wait_time = fire_rate
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	get_input()
+	shield += shield_regen * delta
 
 
 func _physics_process(_delta: float) -> void:
@@ -93,6 +94,7 @@ func shoot():
 func set_lives(value):
 	lives = value
 	lives_changed.emit(lives)
+	shield = max_shield
 	if lives <= 0:
 		change_state(DEAD)
 	else:
@@ -117,9 +119,8 @@ func _on_invulnerability_timer_timeout() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("rocks"):
+		shield -= body.size * 25
 		body.explode()
-		lives -= 1
-		explode()
 
 
 func explode():
