@@ -4,8 +4,12 @@ extends RigidBody2D
 @export var spin_power = 8000
 @export var bullet_scene : PackedScene
 @export var fire_rate = 0.25
+@export var max_shield = 100.0
+@export var shield_regen = 5.0
 signal lives_changed
 signal dead
+signal shield_changed
+
 
 enum {INIT, ALIVE, INVULNERABLE, DEAD}
 var state = INIT
@@ -15,6 +19,7 @@ var screensize = Vector2.ZERO
 var can_shoot = true
 var reset_pos = false
 var lives = 0: set = set_lives
+var shield = 0: set = set_shield
 
 
 func _ready() -> void:
@@ -122,3 +127,12 @@ func explode():
 	$Explosion/AnimationPlayer.play("explosion")
 	await $Explosion/AnimationPlayer.animation_finished
 	$Explosion.hide()
+
+
+func set_shield(value):
+	value = min(value, max_shield)
+	shield = value
+	shield_changed.emit(shield / max_shield)
+	if shield <= 0:
+		lives -= 1
+		explode()
